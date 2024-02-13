@@ -1,0 +1,39 @@
+<%- include('partials/header') %>
+
+<!-- Page Content -->
+<div class="container container-main">
+
+  <div class="row">
+
+    <%- include('partials/leftMenu') %>
+    <!-- /.col-lg-3 -->
+
+    <div class="col-lg-9">
+
+      <div class="login_row">
+
+        <form method="POST" action="/login">
+          <input class="login-textBox" type="text" name="login">
+          <input class="login-btn" type="submit" value="Connexion">
+          <% if (error==="wrong") {%>
+            <p class="password">mauvais password</p>
+          <%}%>
+          <p><a href="/logout">log out</a></p>
+        </form>
+    
+
+
+
+      </div>
+      <!-- /.row -->
+
+    </div>
+    <!-- /.col-lg-9 -->
+
+  </div>
+  <!-- /.row -->
+
+</div>
+<!-- /.container -->
+
+<%- include('partials/footer') %>

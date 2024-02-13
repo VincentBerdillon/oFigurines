@@ -1,0 +1,115 @@
+<%- include('partials/header') %>
+
+  <!-- Page Content -->
+  <div class="container container-main">
+
+    <div class="row">
+<%- include('partials/leftMenu') %>
+    
+      <!-- /.col-lg-3 -->
+
+      <div class="col-lg-9">
+
+        <div class="row">
+          <div class="col-lg-6">
+            <img class="" src="/images/<%=figurine.name.toLowerCase()%>.png" alt="">
+          </div>
+
+          <div class="col-lg-6">
+            <div class="card">
+              <div class="card-body">
+                  <h3 class="card-title">
+                    <%=figurine.name%>
+                    <div class="badge badge-pill badge-gentil"><%=figurine.category%></div>
+                  </h3>
+                  <p class="card-text">Taille réelle : <%=figurine.size%>cm</p>
+                  <p class="card-text"><%=figurine.description%></p>
+                  <p class="card-text">3
+                    Note moyenne : 
+                    <% for(let i = 1; i <= 5; i++){ %>
+                      <% if(figurine.note < i){ %>
+                        &#9734
+                      <%} else { %>
+                          &#9733
+                     <% } %>
+                  <% } %>
+                    <br>
+                    <a href="#" data-toggle="modal" data-target="#reviewsModal">Détails des avis</a>
+                  </p>
+                  <h5>$<%=figurine.price%></h5>
+                  <p class="card-text">
+                    <a href="#" class="link-add-bookmarks">+ Ajouter aux favoris</a>
+                  </p>
+              </div>
+            </div>
+          
+          </div>
+
+        </div>
+        <!-- /.row -->
+
+      </div>
+      <!-- /.col-lg-9 -->
+
+    </div>
+    <!-- /.row -->
+
+  </div>
+  <!-- /.container -->
+
+  <!-- Modale des avis -->
+  <div class="modal fade" id="reviewsModal" tabindex="-1" role="dialog" aria-labelledby="reviewsModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3 class="modal-title" id="reviewsModalLabel">Avis des internautes</h3>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          
+          <% figurineReviews.forEach(review => {%>
+            
+            <section>
+              <h5><%=review.title%> &nbsp; <small class="text-muted">
+              
+                <% for (let i=1; i<=5; i++){%>
+                  <% if(review.note<i){%>
+                    &#9734
+                  <%} else {%>
+                    &#9733
+                  <%}%>
+                <%}%>
+         
+              </small></h5>
+              <p class="review-author">par <%=review.author%></p>
+              <p><%=review.message%></p>
+            </section>
+            
+            <hr>
+            
+            <%})%>
+          <!-- <section>
+            <h5>Bof Bof... &nbsp; <small class="text-muted">&#9733; &#9733; &#9734; &#9734; &#9734;</small></h5>
+            <p class="review-author">par Thérèse de Monsou</p>
+            <p>La figurine ne tient pas debout seule. Certains détails sont mal finis, comme les bracelets.</p>
+          </section>
+
+          <hr>
+
+          <section>
+            <h5>Juste parfait &nbsp; <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9733;</small></h5>
+            <p class="review-author">par Monsieur Preskovitch</p>
+            <p>C'est tellement parfait, on dirait que c'est roulé à la main sous les aisselles.</p>
+          </section> -->
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <%- include('partials/footer') %>

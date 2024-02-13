@@ -1,0 +1,60 @@
+<%- include('partials/header') %>
+
+<!-- Page Content -->
+<div class="container container-main">
+
+  <div class="row">
+
+    <%- include('partials/leftMenu') %>
+    <!-- /.col-lg-3 -->
+
+    <div class="col-lg-9">
+
+      <div class="row">
+
+        <% figurines.forEach(figurine => {%>
+
+          <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card h-100">
+              <a href="/article/<%=figurine.id%>">
+                <img class="card-img-top" src="/images/<%=figurine.name.toLowerCase()%>.png" alt="<%=figurine.name%>">
+                <div class="badge-category badge badge-pill badge-<%=figurine.category%>"><%=figurine.category%></div>
+              </a>
+              <div class="card-body">
+                <h4 class="card-title">
+                  <a href="/article/<%=figurine.id%>"></a>
+                </h4>
+                <h5><% figurine.price %></h5>
+                <p class="card-text"><%=figurine.description%></p>
+              </div>
+              <div class="card-footer">
+                <small class="text-muted"> 
+                  <% for(let i = 1; i <= 5; i++){%>
+                    <% if(figurine.note < i){%>
+                      &#9734
+                    <%} else { %>
+                      &#9733
+                    <%}%>
+                  <%}%>
+                </small>
+                <a href="/bookmarks/add/<%=figurine.id%>" class="link-add-bookmarks">+ Ajouter aux favoris</a>
+              </div>
+            </div>
+          </div>
+
+        <%})%>
+
+
+      </div>
+      <!-- /.row -->
+
+    </div>
+    <!-- /.col-lg-9 -->
+
+  </div>
+  <!-- /.row -->
+
+</div>
+<!-- /.container -->
+
+<%- include('partials/footer') %>

@@ -1,0 +1,51 @@
+<%- include('partials/header') %>
+
+  <!-- Page Content -->
+  <div class="container container-main">
+
+    <div class="row">
+<%- include('partials/leftMenu') %>
+    
+      <!-- /.col-lg-3 -->
+
+      <div class="col-lg-9">
+
+          
+    <form class="addFigForm" method="POST" action="/addFigurine">
+              
+    <h1 class="formTitle">Ajouter une figurine</h1>
+    <p>
+        <label class="label" for="name">Nom de la figurine</label>
+        <input class="item" id="name" type="text" name="name" value="" placeholder="ex.Aerith">
+    </p>
+    <p>
+        <label class="label" for="descripion">Description</label>
+        <textarea class="item" id="descripion" type="text" name="description" value="" placeholder="Description"></textarea>
+    </p>
+    <p>
+        <label class="label" for="size">Taille</label>
+        <input class="item" id="size" type="number" name="size" value="" placeholder="Taille en cm">
+    </p>
+    <p>
+        <label class="label" for="price">Prix</label>
+        <input class="item" id="price" type="number" name="price" step="0.01" value="" placeholder="prix en euros">
+    </p>
+    <p>
+        <label class="label">Catétorie</label>
+        <select class="item" name="category">
+            <option value="Gentil">Gentil</option>
+            <option value="Méchant">Méchant</option>
+            <option value="Animal">Animal</option>
+        </select>      
+    </p>
+    <p>
+        <button class="form-btn">Valider</button>
+    </p>
+</form>
+
+       
+      </div>
+    </div>
+  </div>
+
+  <%- include('partials/footer') %>

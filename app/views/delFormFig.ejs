@@ -1,0 +1,36 @@
+<%- include('partials/header') %>
+
+  <!-- Page Content -->
+  <div class="container container-main">
+
+    <div class="row">
+<%- include('partials/leftMenu') %>
+    
+      <!-- /.col-lg-3 -->
+
+      <div class="col-lg-9">
+
+          
+    <form class="addFigForm" method="POST" action="/delFigurine">
+              
+    <h1 class="formTitle">Supprimer une figurine</h1>
+   
+    <p>
+        <label class="label">Nom de la figurine à supprimer</label>
+        <select class="item" name="name">
+          <% figurines.forEach(figurine => {%>
+            <option value="<%=figurine.name%>"><%=figurine.name%></option>
+          <%})%>
+        </select>      
+    </p>
+    <p>
+        <button class="form-btn">Supprimer</button>
+    </p>
+</form>
+
+       
+      </div>
+    </div>
+  </div>
+
+  <%- include('partials/footer') %>
